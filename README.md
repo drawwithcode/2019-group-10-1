@@ -1,3 +1,23 @@
-# P5-empty-project
-This repository is the starting point of the assignments given in the elective course [Creative Coding at Politecnico di Milano](https://www11.ceda.polimi.it/schedaincarico/schedaincarico/controller/scheda_pubblica/SchedaPublic.do?&evn_default=evento&c_classe=696598&__pj0=0&__pj1=3ed8420c42c849845b5caa3de626e8fc).
-Browse [this website](https://drawwithcode.github.io/) if you want to know more about it.
+# Ph Mosaic Project
+
+## The Team
+Lorenzo Barilla, Federico Lucifora, Elisa Manzoni, Matilde Teani
+
+Creative Coding 2019/2020 - https://drawwithcode.github.io/2019/        
+Politecnico di Milano - Scuola del Design     
+Faculty: Michele Mauri, Andrea Benedetti
+
+**--> Image/video**
+
+## Project Idea
+
+## Design Challenges
+
+## Code Challenges
+
+## References
+
+## Credits
+- p5.js
+- Firebase
+- Daniel Shiffman
