@@ -7,6 +7,7 @@
 Aphotomosaic is a university project developed and realized with p5.js library in the Creative Coding class, taught by Michele Mauri and Andrea Benedetti at Politecnico di Milano.
 
 ## Introduction
+![Music](images/music.jpg)
 
 Everyone loves music. You might listen to it a lot, or you might just let it play in the background when you really don't have anything else to do. Whichever you do, there's no doubt that you have an artist that you like more than everyone else. Every time he announces the release of a new album, you start to wonder what amazing new songs could be in it. You really can't wait for it to come out. And when that happens, you're happier than ever. You start to listen to the new songs over and over, from when you wake up to the moment you go to sleep. Unfortunately, there's a small drawback: once the album is out, you quickly forget all the emotions and all the suspense that you felt before the release. While you still enjoy the music - it's still your favourite artist - you're sad that all that thrill you previously felt is now gone.
 
