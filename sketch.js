@@ -63,7 +63,7 @@ function showButtons() {
   }
 
   this.openWhatsapp = function () {
-    window.location.href = 'whatsapp://send?text=Condividi con i tuoi amici %0Ahttps://elisamanzoni.github.io/photo-mosaic-prova2/';
+    window.location.href = 'whatsapp://send?text=Condividi con i tuoi amici %0Ahttps://drawwithcode.github.io/2019-group-10-1/';
   }
 
   this.openSpotify = function () {
