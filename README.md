@@ -131,7 +131,8 @@ We also experienced various difficulties when trying to create the matching algo
 Lastly, we also needed to find a way to store all the photos taken by the users. For this purpose we used Firebase, which allowed us to have a place for as many images as we needed. Initially, we couldn't understand how to take a picture and save it on the server; we could only upload it from our gallery. However, after spending a bit of time understanding how Firebase works, we managed to accomplish this goal.
 
 ## References
-<img src="images/obama.jpg" width="33%"><img src="images/aletheia.jpg" width="33%"><img src="images/bowie.jpg" width="33%">
+<img src="images/aletheia.jpg" width="33%"><img src="images/obama.jpg" width="33%"><img src="images/bowie.jpg" width="33%">
+We used the music album "Aletheia" by Izi, which has been recently released, changing the title to better adapt to the project. With this act we don't mean to break any copyright or steal someone else's work.
 
 ## Credits
 - p5.js
