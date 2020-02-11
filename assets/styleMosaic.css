@@ -94,7 +94,6 @@ body {
 }
 
 #header {
-  position: absolute;
   bottom: 13vh;
   right: 5vh;
 }
@@ -605,7 +604,6 @@ body {
 @media screen and (min-width: 1024px) {
   
   #goback {
-  position: absolute;
   left: 5vh;
   top: 5vh;
 }
