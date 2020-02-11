@@ -13,6 +13,7 @@ body {
   position: absolute;
   left: 3vh;
   top: 3vh;
+  height: 10vh;
 }
 
 #text {
@@ -158,6 +159,7 @@ svg {
     position: absolute;
     left: 5vw;
     top: 5vw;
+    height: 10vh;
     }
     
     #text {
@@ -274,6 +276,7 @@ p {
     position: absolute;
     left: 5vw;
     top: 5vw;
+    height: 10vh;
     }
 
     #text {
