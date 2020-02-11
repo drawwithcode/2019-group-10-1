@@ -6,6 +6,7 @@ body {
     margin: 0 auto;
     overflow: hidden;
     background-size: cover;
+    background-position: center;
     background-color: black;
     background-image: url("galaxy.png");
 }
