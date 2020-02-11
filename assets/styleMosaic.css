@@ -78,15 +78,6 @@ body {
   margin-top: 0px;
 }
 
-.homeButton {
-  padding: 0;
-  margin-left: -10px;
-  background: none;
-  border: none;
-  color: white;
-  outline: none;
-}
-
 #header {
   position: absolute;
   bottom: 13vh;
@@ -658,17 +649,6 @@ body {
     transform: translate(-13%, -2%);
   }
 
-  .homeButton {
-    width: 60px;
-    height: 60px;
-    background: black;
-    border-radius: 3px;
-  }
-
-  .homeButton:hover {
-    border: 3px solid white;
-  }
-
   /* zoom button */
   .zoom {
     width: 6vw;
@@ -694,7 +674,7 @@ body {
     text-align: center;
     top: calc(50vh + 100px);
     font-size: 20pt;
-    font-family: montserrat;
+    font-family: sans-serif;
     color: white;
   }
 }
