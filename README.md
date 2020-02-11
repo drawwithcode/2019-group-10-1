@@ -24,6 +24,12 @@ We created an app that will do exactly that: each user will be asked to take a p
 //javascript, p5
 
 hello
+
+
+
+
+
+I'm a very sexy code
 ```
 
 ## Code Challenges
@@ -36,8 +42,7 @@ We also experienced various difficulties when trying to create the matching algo
 Lastly, we also needed to find a way to store all the photos taken by the users. For this purpose we used Firebase, which allowed us to have a place for as many images as we needed.
 
 ## References
-![Obama](images/obama.jpg)![Aletheia](images/aletheia.jpg)![Bowie](images/bowie.jpg)
-## Credits
+<img src="images/obama.jpg" width="33%"><img src="images/aletheia.jpg" width="33%"><img src="images/bowie.jpg" width="33%">
 - p5.js
 - Firebase
 - Daniel Shiffman
