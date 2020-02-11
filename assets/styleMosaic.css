@@ -94,6 +94,8 @@ body {
 }
 
 #header {
+  position: absolute;
+  z-index: 10;
   bottom: 13vh;
   right: 5vh;
 }
@@ -610,6 +612,8 @@ body {
 }
   
   #header {
+    position: absolute;
+    z-index: 10;
     bottom: 5vw;
     right: 8vw;
   }
