@@ -2,7 +2,7 @@
 
 
 
-![Copertina](images/copertina.png)
+![Copertina](images/copertina.jpg)
 
 Photomus(a)ic is a university project developed and realized with p5.js library in the Creative Coding class, taught by Michele Mauri and Andrea Benedetti at Politecnico di Milano.
 
