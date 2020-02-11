@@ -205,8 +205,8 @@ function showButtons() {
 
   this.initialize = function() {
     // open homepage
-    let backIcon = '<svg style="width:100px;height:100px" viewBox="0 0 24 24"><path fill="currentColor" d="M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z" /></svg>';
-    backButton = this.newButton(backIcon, "iconButton", openIndex, "goback");
+    let backIcon = '<svg style="width:50px;height:50px" viewBox="0 0 24 24"><path fill="currentColor" d="M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z" /></svg>';
+    backButton = this.newButton(backIcon, "homeButton", openIndex, "goback");
     //backButton.hide();
 
 
