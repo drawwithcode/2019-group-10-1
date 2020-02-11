@@ -87,7 +87,7 @@ body {
   outline: none;
 }
 
-#header {
+#goback {
   position: absolute;
   left: 5vh;
   top: 5vh;
@@ -638,7 +638,7 @@ body {
     top: 50%;
   }
   
-  #header {
+  #goback {
   position: absolute;
   left: 5vw;
   top: 5vw;
