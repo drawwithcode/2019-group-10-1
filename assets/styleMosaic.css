@@ -96,7 +96,7 @@ body {
 #header {
   position: absolute;
   z-index: 10;
-  bottom: 13vh;
+  bottom: 10vh;
   right: 5vh;
 }
 
@@ -600,7 +600,14 @@ body {
 }
 
 /*-----------------tablet-------------------------*/
-@media screen and (min-width: 720px) {}
+@media screen and (min-width: 720px) {
+#header {
+  position: absolute;
+  z-index: 10;
+  bottom: 5vh;
+  right: 5vh;
+}
+}
 
 /*-----------------desktop-------------------------*/
 @media screen and (min-width: 1024px) {
