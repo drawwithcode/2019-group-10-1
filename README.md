@@ -140,6 +140,7 @@ We used the music album "Aletheia" by Izi, which has been recently released, cha
 - Daniel Shiffman
 
 ## The Team
+![Team](images/team.jpg)
 Lorenzo Barilla, Federico Lucifora, Elisa Manzoni, Matilde Teani
 
 Creative Coding 2019/2020 - https://drawwithcode.github.io/2019/        
