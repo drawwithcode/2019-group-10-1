@@ -89,8 +89,8 @@ body {
 
 #goback {
   position: absolute;
-  left: 5vh;
-  top: 5vh;
+  left: 3vh;
+  top: 3vh;
 }
 
 #header {
@@ -603,6 +603,13 @@ body {
 
 /*-----------------desktop-------------------------*/
 @media screen and (min-width: 1024px) {
+  
+  #goback {
+  position: absolute;
+  left: 5vh;
+  top: 5vh;
+}
+  
   #header {
     position: absolute;
     bottom: 5vw;
@@ -636,12 +643,6 @@ body {
     transform: translate(-50%, -50%);
     left: 0%;
     top: 50%;
-  }
-  
-  #goback {
-  position: absolute;
-  left: 5vw;
-  top: 5vw;
   }
 
   .rightButton {
