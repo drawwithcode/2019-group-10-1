@@ -5,6 +5,7 @@ body {
     /*width: 90vw;*/
     margin: 0 auto;
     overflow: hidden;
+    background-size: cover;
     background-color: black;
     background-image: url("galaxy.png");
 }
@@ -145,7 +146,6 @@ svg {
 @media screen and (min-width: 720px) {
     body {
         padding: 5vh;
-        /*width: 90vw;*/
     }
     
     canvas {
@@ -284,8 +284,6 @@ p {
     #buttons {
         height: 20vh;
         padding-top: 40px;
-        /*margin: 20px 0;*/
-        /*padding: 0;*/
     }
 
     #canvasContainer {
