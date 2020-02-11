@@ -21,11 +21,10 @@ We created an app that will do exactly that: each user will be asked to take a p
 
 We first found all the RGB values of each pixel of every image. Then, we calculated the arithmetic average of said values, thus creating an average color for each image. After that, we used the "brightness" function in order to find the brightness of the color, and stored all these values in an array.
 ```
+//for each image available...
 function findImageBrightness() {
 
-
   for (let i = 0; i < allImages.length; i++) {
-    // allImages[i].filter(GRAY);
     allImages[i].loadPixels();
 
     var rSum = 0;
@@ -54,7 +53,6 @@ function findImageBrightness() {
     var avgRGB = color(r, g, b);
     push();
     colorMode(HSB, 360, 100, 100, 1);
-
     var avgBrg = floor(brightness(avgRGB));
     pop();
 
@@ -69,6 +67,7 @@ function findImageBrightness() {
 ```
 We found the brightness of every pixel the same way we found the brightness value for all the other images. After that, we compared every pixel with every image with different "for" cycles, so that we could find the best image to replace every pixel. We also used another array to store a counter for every image, so that they could only be displayed a set number of times.
 ```
+// determine the brightness of each pixel of the cover
 function analyzeCoverPixels() {
 
   smaller.loadPixels();
@@ -80,9 +79,6 @@ function analyzeCoverPixels() {
 
       //get the color of the pixel
       var tempC = smaller.get(x, y);
-
-      // push();
-
       var tempB = int(brightness(tempC));
 
       //find the fist submitted photo with brightness == to the pixel of the cover
@@ -91,27 +87,26 @@ function analyzeCoverPixels() {
         if (tempB == brgValues[i]) {
           var index = x + y * w;
 
-          if (numeroUtilizzi[i] < numeroMaxUtilizzi) {
-            //console.log(allImages[i] + ' used');
-            numeroUtilizzi[i] += 1;
-            immaginiDaUsare[index] = allImages[i];
+          if (numberOfUses[i] < maxNumberOfUses) {
+
+            numberOfUses[i] += 1;
+            imageToUse[index] = allImages[i];
 
             //in order not to have the same tile in many adjacent pixel with the same brightness value
             //copy the values at the end of the array
             allImages.push(allImages[i]);
             brgValues.push(brgValues[i]);
-            numeroUtilizzi.push(numeroUtilizzi[i]);
+            numberOfUses.push(numberOfUses[i]);
             //and remove the used image from its original position in the arrays
             //and probably in the next cycle another matching image will be find before the one used here
             allImages.splice(i, 1);
             brgValues.splice(i, 1);
-            numeroUtilizzi.splice(i, 1);
+            numberOfUses.splice(i, 1);
 
-          } else if (numeroUtilizzi[i] == numeroMaxUtilizzi) {
-            //console.log(allImages[i] + ' removed');
+          } else if (numberOfUses[i] == maxNumberOfUses) {
             allImages.splice(i, 1);
             brgValues.splice(i, 1);
-            numeroUtilizzi.splice(i, 1);
+            numberOfUses.splice(i, 1);
           }
           //end the for cycle
           //analyze the next pixel of the cover
@@ -123,8 +118,6 @@ function analyzeCoverPixels() {
 
   drawMosaic();
   showButtons();
-
-  var tiles_utilizzate = quadratiNeri + fotoUsate
 }
 ```
 
