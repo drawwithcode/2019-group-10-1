@@ -10,7 +10,6 @@ body {
 
 /*---div---*/
 #header {
-  position: absolute;
   left: 3vh;
   top: 3vh;
   height: 10vh;
@@ -156,7 +155,6 @@ svg {
 
     /*---div---*/
     #header {
-    position: absolute;
     left: 5vw;
     top: 5vw;
     height: 10vh;
@@ -273,7 +271,6 @@ p {
 
     /*---div---*/
     #header {
-    position: absolute;
     left: 5vw;
     top: 5vw;
     height: 10vh;
