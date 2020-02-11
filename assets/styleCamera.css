@@ -6,21 +6,7 @@ body {
     margin: 0 auto;
     overflow: hidden;
     background-color: black;
-    background-image: url("galaxy.png");
 }
-
-.cameraMosaicBody {
-    padding: 5vh;
-    width: 90vw;
-    margin: 0 auto;
-    overflow: hidden;
-    background-color: black;
-}
-
- /*
-canvas {
-    margin-left: -10vw;
-}*/
 
 /*---div---*/
 #header {
