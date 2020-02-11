@@ -27,6 +27,7 @@ hello
 ```
 
 ## Code Challenges
+![Challenge](images/challenge.jpg)
 
 The initial goal was to create a coloured photo mosaic. We wanted to find a way to compare the HSB values (hue, saturation and brightness) of each pixel of the cover with the average HSB values of each image, so as to find the best matching image for each pixel. The problem was that, in order to find the HSB values of each image, we first extracted the HSB values for every pixel of every image, then we calculated the arithmetic average of these values. But the averege color of an image is not necessarily the dominant color of that image. Take the color palette of a painter, for example: if you mix even a bit of black paint with a random quantity of yellow paint, the color you will get will be vastly different from yellow, even you know for sure that most of the paint was previously yellow. The same happens when you calculate the average HSB values of an image. Therefore, when you replace a pixel with an image, the result might be different from what you expected. Another issue was that the color distance, which could be used as a parameter when looking for the best image, is calculated through a non-linear formula. This means that different colors might have the same distance from the color you're looking for.
 
@@ -35,7 +36,7 @@ We also experienced various difficulties when trying to create the matching algo
 Lastly, we also needed to find a way to store all the photos taken by the users. For this purpose we used Firebase, which allowed us to have a place for as many images as we needed.
 
 ## References
-
+![Obama](images/obama.jpg)![Aletheia](images/aletheia.jpg)![Bowie](images/bowie.jpg)
 ## Credits
 - p5.js
 - Firebase
