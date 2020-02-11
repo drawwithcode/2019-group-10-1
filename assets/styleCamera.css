@@ -10,7 +10,9 @@ body {
 
 /*---div---*/
 #header {
-    height: 10vh;
+  left: 3vh;
+  top: 3vh;
+  height: 10vh;
 }
 
 #text {
@@ -153,7 +155,9 @@ svg {
 
     /*---div---*/
     #header {
-        height: 10vh;
+    left: 5vw;
+    top: 5vw;
+    height: 10vh;
     }
     
     #text {
@@ -267,7 +271,9 @@ p {
 
     /*---div---*/
     #header {
-        height: 10vh;
+    left: 5vw;
+    top: 5vw;
+    height: 10vh;
     }
 
     #text {

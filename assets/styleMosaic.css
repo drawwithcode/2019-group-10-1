@@ -87,6 +87,12 @@ body {
   outline: none;
 }
 
+#goback {
+  position: absolute;
+  left: 3vh;
+  top: 3vh;
+}
+
 #header {
   position: absolute;
   bottom: 13vh;
@@ -597,6 +603,13 @@ body {
 
 /*-----------------desktop-------------------------*/
 @media screen and (min-width: 1024px) {
+  
+  #goback {
+  position: absolute;
+  left: 5vh;
+  top: 5vh;
+}
+  
   #header {
     position: absolute;
     bottom: 5vw;
