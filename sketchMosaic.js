@@ -337,6 +337,7 @@ function up() {
 
 // determine the brightness of each pixel of the cover
 function analyzeCoverPixels() {
+
   smaller.loadPixels();
   // for every pixel of the cover (resized)
   for (var x = 0; x < w; x++) {
@@ -385,8 +386,6 @@ function analyzeCoverPixels() {
 
   drawMosaic();
   showButtons();
-
-  noLoop();
 }
 
 function drawMosaic() {
@@ -449,7 +448,6 @@ function findImageBrightness() {
     var avgRGB = color(r, g, b);
     push();
     colorMode(HSB, 360, 100, 100, 1);
-
     var avgBrg = floor(brightness(avgRGB));
     pop();
 
