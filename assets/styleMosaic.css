@@ -89,6 +89,12 @@ body {
 
 #header {
   position: absolute;
+  left: 5vh;
+  top: 5vh;
+}
+
+#header {
+  position: absolute;
   bottom: 13vh;
   right: 5vh;
 }
@@ -630,6 +636,12 @@ body {
     transform: translate(-50%, -50%);
     left: 0%;
     top: 50%;
+  }
+  
+  #header {
+  position: absolute;
+  left: 5vw;
+  top: 5vw;
   }
 
   .rightButton {
