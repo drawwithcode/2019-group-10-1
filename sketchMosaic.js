@@ -1,3 +1,5 @@
+// global variables
+var cnv;
 var cover;
 var cover_title_preload;
 var cover_title;
@@ -9,31 +11,19 @@ var scl;
 var w, h;
 
 var allImages = [];
-
 var brgValues = [];
 
-
-//Firebase
-var database;
-//END Firebase
-
-
 var immaginiDaUsare = [];
-var quadratiNeri = 0;
-var fotoUsate = 0;
-
 var numeroUtilizzi = [];
-var numeroMaxUtilizzi = 30;
+var numeroMaxUtilizzi;
 
-
-//elisa
+// zoom levels
 var zoom0;
 var zoom1;
 var zoom2;
 var zoom3;
 
-var cnv;
-
+// buttons
 var zoomInButton;
 var zoomOutButton;
 var leftButton;
@@ -47,23 +37,29 @@ var mosaic_w;
 var elisa_x = 0;
 var elisa_y = 0;
 
-var loading = 0;
+// loading variables
 var loadingText;
 var spinner;
-////////////////////////////////////
+// tracks the activity in execution
+var loading = 0;
+
+//Firebase
+var database;
+
 
 function preload() {
   //load cover
   cover = loadImage('assets/cover.jpg');
   cover_title_preload = loadImage('assets/cover-scritte.png');
   firebaseConfiguration();
-  //if loading == 1 --> downloading the images
+
+  //loading == 1 --> downloading the images
   loading = 1;
 }
 
-function firebaseConfiguration() {
 
-  // Your web app's Firebase configuration
+function firebaseConfiguration() {
+  //Firebase configuration
   var firebaseConfig = {
     apiKey: "AIzaSyDRzxo_AJMjYQC75jb67nC006ayqVKuB1g",
     authDomain: "photo-mosaic-a57e8.firebaseapp.com",
@@ -76,16 +72,13 @@ function firebaseConfiguration() {
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
   database = firebase.database();
-  
+
   var ref = database.ref('photos');
   ref.once('value', gotData, errData);
 }
 
 
 function gotData(data) {
-
-
-  console.log('gotData starting');
   var photolistings = selectAll('photolisting');
 
   for (let i = 0; i < photolistings.length; i++) {
@@ -94,7 +87,6 @@ function gotData(data) {
 
   var photos = data.val();
   var keys = Object.keys(photos);
-  console.log('numero di foto caricate = ' + keys.length);
 
   for (let j = 0; j < keys.length; j++) {
     let k = keys[j];
@@ -102,27 +94,20 @@ function gotData(data) {
     //load tiles for the mosaic
     allImages[j] = loadImage(photo_img);
 
-    //  console.log(j);
-    //console.log(allImages[j]);
-
     if (j == keys.length - 1) {
       findNumeroMaxUtilizzi();
       setTimeout(findImageBrightness, keys.length);
+
       //if loading == 2 --> mesuring the average brightness of each image
       loading = 2;
     }
   }
 
-  // numeroUtilizzi.length = allImages.length;
   for (var l = 0; l < allImages.length; l++) {
     numeroUtilizzi[l] = 0;
   }
-  console.log('numeroUtilizzi');
-  //console.log(numeroUtilizzi);
-
-  console.log('gotData ending');
-  //console.log(allImages);
 }
+
 
 function errData(err) {
   console.log('Error');
@@ -132,7 +117,6 @@ function errData(err) {
 
 function findNumeroMaxUtilizzi() {
   var tilesNeeded = w * h;
-  console.log(tilesNeeded);
   var tilesAvailable = allImages.length;
   var tilesRatio = (tilesAvailable / tilesNeeded) * 100;
 
@@ -205,18 +189,14 @@ function showButtons() {
 
   this.initialize = function() {
     // open homepage
-    let backIcon = '<svg style="width:100px;height:100px" viewBox="0 0 24 24"><path fill="currentColor" d="M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z" /></svg>';
-    backButton = this.newButton(backIcon, "iconButton", openIndex, "goback");
-    //backButton.hide();
-
+    let backIcon = '<svg style="width:50px;height:50px" viewBox="0 0 24 24"><path fill="currentColor" d="M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z" /></svg>';
+    backButton = this.newButton(backIcon, "homeButton", openIndex, "goback");
 
     let minus = '<svg class="plus" viewBox="0 0 24 24"> <path fill="currentColor" d="M19,13H5V11H19V13Z" /></svg>';
     zoomOutButton = this.newButton(minus, "zoomOutButton zoom zoomposition", zoomOut, "header");
-    //zoomOutButton.hide();
 
     let plus = '<svg class="plus" viewBox="0 0 24 24"> <path fill="currentColor" d="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z" /> </svg>';
     zoomInButton = this.newButton(plus, "zoomInButton zoom zoomposition", zoomIn, "header");
-    //zoomInButton.hide();
 
     let arrow_white = '<svg class="arrow_white" viewBox="0 0 24 24"><path fill="white" d="M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z" /></svg>';
     leftButton = this.newButton(arrow_white, "leftButton arrow", left, "buttons");
@@ -230,7 +210,6 @@ function showButtons() {
 
     downButton = this.newButton(arrow_white, "downButton arrow", down, "buttons");
     downButton.hide();
-
   }
   this.initialize();
 }
@@ -299,8 +278,6 @@ function right() {
     elisa_x = (cnv.width - w * scl);
   } else {
     elisa_x -= mosaic_shift;
-    console.log(cnv.width - w * scl);
-    console.log('elisa x :' + elisa_x);
   }
   drawMosaic();
 }
@@ -339,8 +316,6 @@ function up() {
 }
 
 function analyzeCoverPixels() {
-  //console.log(brgValues);
-
   smaller.loadPixels();
   // for every pixel of the cover (resized)
   for (var x = 0; x < w; x++) {
@@ -350,9 +325,6 @@ function analyzeCoverPixels() {
 
       //get the color of the pixel
       var tempC = smaller.get(x, y);
-
-      // push();
-
       var tempB = int(brightness(tempC));
 
       //find the fist submitted photo with brightness == to the pixel of the cover
@@ -362,7 +334,7 @@ function analyzeCoverPixels() {
           var index = x + y * w;
 
           if (numeroUtilizzi[i] < numeroMaxUtilizzi) {
-            //console.log(allImages[i] + ' used');
+
             numeroUtilizzi[i] += 1;
             immaginiDaUsare[index] = allImages[i];
 
@@ -378,7 +350,6 @@ function analyzeCoverPixels() {
             numeroUtilizzi.splice(i, 1);
 
           } else if (numeroUtilizzi[i] == numeroMaxUtilizzi) {
-            //console.log(allImages[i] + ' removed');
             allImages.splice(i, 1);
             brgValues.splice(i, 1);
             numeroUtilizzi.splice(i, 1);
@@ -394,21 +365,12 @@ function analyzeCoverPixels() {
   drawMosaic();
   showButtons();
 
-  var tiles_utilizzate = quadratiNeri + fotoUsate
-  //console.log('tiles necessarie = ' + smaller.width * smaller.height);
-  //console.log('tiles utilizzate = ' + tiles_utilizzate);
-
-  console.log(numeroUtilizzi);
   noLoop();
 }
 
 function drawMosaic() {
   spinner.hide();
   loadingText.hide();
-
-  //zoomInButton.show();
-  //zoomOutButton.show();
-  //backButton.show();
 
   clear();
   fill('black');
@@ -422,9 +384,6 @@ function drawMosaic() {
       if (immaginiDaUsare[index] != null) {
         //draw the image corresponding to each cover pixel
         image(immaginiDaUsare[index], (x * scl) + elisa_x, (y * scl) + elisa_y, scl, scl);
-
-        fotoUsate++;
-        // console.log('foto usate = ' + fotoUsate);
       }
     }
   }
@@ -436,9 +395,7 @@ function drawMosaic() {
 //for each image available...
 function findImageBrightness() {
 
-
   for (let i = 0; i < allImages.length; i++) {
-    // allImages[i].filter(GRAY);
     allImages[i].loadPixels();
 
     var rSum = 0;
@@ -473,9 +430,6 @@ function findImageBrightness() {
 
     //...and store the average brightness value of each image in an array
     brgValues[i] = avgBrg;
-
-    //console.log('immagine ' + i);
-    //  console.log('brightness ' + avgBrg);
   }
   //if loading == 3 --> analyzing the brightness of the cover
   loading = 3;

@@ -1,8 +1,8 @@
-# Aphotomosaic Project
+# Aletheia Photo Mosaic
 
 ![Copertina](images/copertina.jpg)
 
-Aphotomosaic is a university project developed and realized with p5.js library in the Creative Coding class, taught by Michele Mauri and Andrea Benedetti at Politecnico di Milano.
+Aletheia Photo Mosaic is a university project developed and realized with p5.js library in the Creative Coding class, taught by Michele Mauri and Andrea Benedetti at Politecnico di Milano.
 
 ## Introduction
 
@@ -18,16 +18,114 @@ We created an app that will do exactly that: each user will be asked to take a p
 
 ## Development
 ![Coding](images/coding.jpg)
+
+We first found all the RGB values of each pixel of every image. Then, we calculated the arithmetic average of said values, thus creating an average color for each image. After that, we used the "brightness" function in order to find the brightness of the color, and stored all these values in an array.
 ```
-//javascript, p5
-
-hello
+function findImageBrightness() {
 
 
+  for (let i = 0; i < allImages.length; i++) {
+    // allImages[i].filter(GRAY);
+    allImages[i].loadPixels();
 
+    var rSum = 0;
+    var gSum = 0;
+    var bSum = 0;
+    var r, g, b;
+    var c;
 
+    //...sum the r,g,b values of each pixel...
+    for (let x = 0; x < allImages[i].width; x++) {
+      for (let y = 0; y < allImages[i].height; y++) {
+        c = allImages[i].get(x, y);
+        rSum += c[0];
+        gSum += c[1];
+        bSum += c[2];
+      }
+    }
 
-I'm a very sexy code
+    //...then divide for the number of pixels that compose the image to find the average r,g,b values...
+    var pixNumber = allImages[i].pixels.length / 4;
+    r = floor(rSum / pixNumber);
+    g = floor(gSum / pixNumber);
+    b = floor(bSum / pixNumber);
+
+    //...and find the hue ov the average color of the image...
+    var avgRGB = color(r, g, b);
+    push();
+    colorMode(HSB, 360, 100, 100, 1);
+
+    var avgBrg = floor(brightness(avgRGB));
+    pop();
+
+    //...and store the average brightness value of each image in an array
+    brgValues[i] = avgBrg;
+  }
+  //if loading == 3 --> analyzing the brightness of the cover
+  loading = 3;
+
+  analyzeCoverPixels();
+}
+```
+We found the brightness of every pixel the same way we found the brightness value for all the other images. After that, we compared every pixel with every image with different "for" cycles, so that we could find the best image to replace every pixel. We also used another array to store a counter for every image, so that they could only be displayed a set number of times.
+```
+function analyzeCoverPixels() {
+
+  smaller.loadPixels();
+  // for every pixel of the cover (resized)
+  for (var x = 0; x < w; x++) {
+    for (var y = 0; y < h; y++) {
+      //index = numero del pixel della cover
+      var index = x + y * w;
+
+      //get the color of the pixel
+      var tempC = smaller.get(x, y);
+
+      // push();
+
+      var tempB = int(brightness(tempC));
+
+      //find the fist submitted photo with brightness == to the pixel of the cover
+      for (i = 0; i < allImages.length; i++) {
+
+        if (tempB == brgValues[i]) {
+          var index = x + y * w;
+
+          if (numeroUtilizzi[i] < numeroMaxUtilizzi) {
+            //console.log(allImages[i] + ' used');
+            numeroUtilizzi[i] += 1;
+            immaginiDaUsare[index] = allImages[i];
+
+            //in order not to have the same tile in many adjacent pixel with the same brightness value
+            //copy the values at the end of the array
+            allImages.push(allImages[i]);
+            brgValues.push(brgValues[i]);
+            numeroUtilizzi.push(numeroUtilizzi[i]);
+            //and remove the used image from its original position in the arrays
+            //and probably in the next cycle another matching image will be find before the one used here
+            allImages.splice(i, 1);
+            brgValues.splice(i, 1);
+            numeroUtilizzi.splice(i, 1);
+
+          } else if (numeroUtilizzi[i] == numeroMaxUtilizzi) {
+            //console.log(allImages[i] + ' removed');
+            allImages.splice(i, 1);
+            brgValues.splice(i, 1);
+            numeroUtilizzi.splice(i, 1);
+          }
+          //end the for cycle
+          //analyze the next pixel of the cover
+          i = allImages.length;
+        }
+      }
+    }
+  }
+
+  drawMosaic();
+  showButtons();
+
+  var tiles_utilizzate = quadratiNeri + fotoUsate
+}
 ```
 
 ## Code Challenges
@@ -37,7 +135,7 @@ The initial goal was to create a coloured photo mosaic. We wanted to find a way 
 
 We also experienced various difficulties when trying to create the matching algorithm itself. We needed something that could not only associate images to pixels, but also make it so that images were not used more than a set number of times, in order to guarantee that the largest number of images is used. In order to overcome this challenges, we did an in-depth study of pixel arrays, which allowed us to find the correct matchin algorithm.
 
-Lastly, we also needed to find a way to store all the photos taken by the users. For this purpose we used Firebase, which allowed us to have a place for as many images as we needed.
+Lastly, we also needed to find a way to store all the photos taken by the users. For this purpose we used Firebase, which allowed us to have a place for as many images as we needed. Initially, we couldn't understand how to take a picture and save it on the server; we could only upload it from our gallery. However, after spending a bit of time understanding how Firebase works, we managed to accomplish this goal.
 
 ## References
 <img src="images/obama.jpg" width="33%"><img src="images/aletheia.jpg" width="33%"><img src="images/bowie.jpg" width="33%">
