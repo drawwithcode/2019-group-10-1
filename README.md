@@ -43,6 +43,8 @@ Lastly, we also needed to find a way to store all the photos taken by the users.
 
 ## References
 <img src="images/obama.jpg" width="33%"><img src="images/aletheia.jpg" width="33%"><img src="images/bowie.jpg" width="33%">
+
+## Credits
 - p5.js
 - Firebase
 - Daniel Shiffman
