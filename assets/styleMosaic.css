@@ -127,7 +127,7 @@ body {
   font-size: 15pt;
   font-family: sans-serif;
   color: white;
-  width: 100vw;
+  width: 60vw;
 }
 
 /* spinner */
@@ -600,14 +600,7 @@ body {
 }
 
 /*-----------------tablet-------------------------*/
-@media screen and (min-width: 720px) {
-#header {
-  position: absolute;
-  z-index: 10;
-  bottom: 5vh;
-  right: 5vh;
-}
-}
+@media screen and (min-width: 720px) {}
 
 /*-----------------desktop-------------------------*/
 @media screen and (min-width: 1024px) {
